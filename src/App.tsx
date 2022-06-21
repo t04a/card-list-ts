@@ -10,9 +10,7 @@ function App() {
 
     useEffect(() => {
         const fetchData = async () => {
-            const result = await axios(
-                endpoint
-            );
+            const result = await axios(endpoint);
             setAnimals(result.data);
         };
         fetchData();
