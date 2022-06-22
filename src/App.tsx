@@ -1,7 +1,8 @@
 import React, {useEffect} from 'react';
 import './App.css';
 import {useAppDispatch, useAppSelector} from "./hooks/redux";
-import {fetchUsers} from "./store/reducers/ActionCreators";
+import {fetchAnimals, fetchUsers} from "./store/reducers/ActionCreators";
+import Card from "./components/Card/Card";
 
 function App() {
 /*
@@ -16,11 +17,13 @@ function App() {
     }, []);*/
 
     const dispatch = useAppDispatch();
-    const {users, isLoading, error} = useAppSelector(state => state.userReducer)
+    // const {users, isLoading, error} = useAppSelector(state => state.userReducer);
+    const {animals, isLoading, error} = useAppSelector(state => state.animalReducer)
 
     useEffect(() => {
-        dispatch(fetchUsers())
-        console.log('ololo')
+        // dispatch(fetchUsers())
+        dispatch(fetchAnimals())
+        // console.log('ololo')
     }, [ ])
 
     return (
@@ -28,9 +31,13 @@ function App() {
             {/*{animals.map((animal: any) => {
                 return <Card animal={animal} key={animal.id}/>;
             })}*/}
+            {animals.map((animal) => {
+                return <Card animal={animal} key={animal.id}/>;
+            })}
             {isLoading && <h1>Идет загрузка...</h1>}
             {error && <h1>{error}</h1>}
-            {JSON.stringify(users,null, 2)}
+            {/*{JSON.stringify(users,null, 2)}*/}
+            {/*{JSON.stringify(animals, null, 2)}*/}
         </div>
     );
 }

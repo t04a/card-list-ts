@@ -1,6 +1,7 @@
 import axios from "axios";
 import {IUser} from "../../models/IUser";
 import {createAsyncThunk} from "@reduxjs/toolkit";
+import {Animal} from "../../models/Animal";
 
 /*export const fetchUsers = () => async (dispatch: AppDispatch) => {
     try {
@@ -20,6 +21,18 @@ export const fetchUsers = createAsyncThunk(
             return response.data;
         } catch (e) {
             return thunkAPI.rejectWithValue('Не удалось загрузить пользователей')
+        }
+    }
+)
+
+export const fetchAnimals = createAsyncThunk(
+    'animal/fetchAll',
+    async (_,thunkAPI) => {
+        try {
+            const response = await axios.get<Animal[]>('https://zoo-animal-api.herokuapp.com/animals/rand/8');
+            return response.data;
+        } catch (e) {
+            return thunkAPI.rejectWithValue('Не удалось загрузить зверей')
         }
     }
 )
