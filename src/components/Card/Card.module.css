@@ -16,6 +16,18 @@
     object-fit: cover;
 }
 
+.likeFalse {
+    width: 40px;
+    height: 40px;
+    background-color: #e7bfbf;
+}
+
+.likeTrue {
+    width: 40px;
+    height: 40px;
+    background-color: red;
+}
+
 .delete {
     position: absolute;
     top: 0;

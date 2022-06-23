@@ -31,6 +31,7 @@ function App() {
             {/*{animals.map((animal: any) => {
                 return <Card animal={animal} key={animal.id}/>;
             })}*/}
+
             {animals.map((animal) => {
                 return <Card animal={animal} key={animal.id}/>;
             })}

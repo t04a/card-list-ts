@@ -17,7 +17,15 @@ const initialState: AnimalState = {
 export const AnimalSlice = createSlice({
     name: 'animal',
     initialState,
-    reducers: {},
+    reducers: {
+        changeIsLiked(state, action: PayloadAction<number>) {
+            state.animals.map((animal) => {
+                if(animal.id === action.payload) {
+                    animal.isLiked = !animal.isLiked
+                }
+            })
+        }
+    },
     extraReducers: {
         [fetchAnimals.pending.type]: (state) => {
             state.isLoading = true;
@@ -26,6 +34,9 @@ export const AnimalSlice = createSlice({
             state.isLoading = false;
             state.error = '';
             state.animals = action.payload;
+            state.animals.map((animal) => {
+                animal.isLiked = false;
+            })
         },
         [fetchAnimals.rejected.type]: (state, action: PayloadAction<string>) => {
             state.isLoading = false;
