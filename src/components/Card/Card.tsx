@@ -10,6 +10,7 @@ interface CardProps {
 const Card = ({animal}: CardProps) => {
 
     const {changeIsLiked} = AnimalSlice.actions;
+    const {deleteCard} = AnimalSlice.actions;
     const dispatch = useAppDispatch();
 
     return (
@@ -18,7 +19,9 @@ const Card = ({animal}: CardProps) => {
             <p>{animal.name}</p>
             <div className={animal.isLiked ? style.likeTrue : style.likeFalse}
                  onClick={() => dispatch(changeIsLiked(animal.id))}/>
-            <div className={style.delete} />
+            <div className={style.delete}
+                 onClick={() => dispatch(deleteCard(animal.id))}
+            />
         </div>
     );
 };

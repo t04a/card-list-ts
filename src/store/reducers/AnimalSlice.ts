@@ -24,6 +24,21 @@ export const AnimalSlice = createSlice({
                     animal.isLiked = !animal.isLiked
                 }
             })
+        },
+        deleteCard(state, action: PayloadAction<number>) {
+            let index = state.animals.findIndex((animal) => {
+                    return animal.id === action.payload
+            })
+            state.animals.splice(index, 1)
+        },
+        filterIsLiked(state, action: PayloadAction<boolean>) {
+            state.animals.map( animal => {
+                if (action.payload) {
+                    animal.isLiked ? animal.isDisplay = true : animal.isDisplay = false
+                } else {
+                    animal.isDisplay = true
+                }
+            })
         }
     },
     extraReducers: {
@@ -36,6 +51,7 @@ export const AnimalSlice = createSlice({
             state.animals = action.payload;
             state.animals.map((animal) => {
                 animal.isLiked = false;
+                animal.isDisplay = true;
             })
         },
         [fetchAnimals.rejected.type]: (state, action: PayloadAction<string>) => {

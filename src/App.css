@@ -4,3 +4,12 @@
   row-gap: 5px;
   column-gap: 5px;
 }
+
+.filter {
+  width: 100%;
+}
+.filter label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

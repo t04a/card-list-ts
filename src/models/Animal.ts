@@ -3,4 +3,5 @@ export interface Animal {
     image_link: string;
     id: number;
     isLiked: boolean;
+    isDisplay: boolean;
 }
