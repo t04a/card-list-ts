@@ -20,12 +20,14 @@
     width: 40px;
     height: 40px;
     background-color: #e7bfbf;
+    cursor: pointer;
 }
 
 .likeTrue {
     width: 40px;
     height: 40px;
     background-color: red;
+    cursor: pointer;
 }
 
 .delete {
@@ -35,4 +37,5 @@
     width: 20px;
     height: 20px;
     background-color: red;
+    cursor: pointer;
 }

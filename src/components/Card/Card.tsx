@@ -18,10 +18,10 @@ const Card = ({animal}: CardProps) => {
             <img src={animal.image_link} alt=""/>
             <p>{animal.name}</p>
             <div className={animal.isLiked ? style.likeTrue : style.likeFalse}
-                 onClick={() => dispatch(changeIsLiked(animal.id))}/>
+                 onClick={() => dispatch(changeIsLiked(animal.id))}>like</div>
             <div className={style.delete}
                  onClick={() => dispatch(deleteCard(animal.id))}
-            />
+            >del</div>
         </div>
     );
 };
