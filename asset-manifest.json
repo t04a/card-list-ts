@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "//t04a.github.io/card-list-ts/static/css/main.418ff000.css",
-    "main.js": "//t04a.github.io/card-list-ts/static/js/main.9c4a27fb.js",
-    "index.html": "//t04a.github.io/card-list-ts/index.html",
-    "main.418ff000.css.map": "//t04a.github.io/card-list-ts/static/css/main.418ff000.css.map",
-    "main.9c4a27fb.js.map": "//t04a.github.io/card-list-ts/static/js/main.9c4a27fb.js.map"
+    "main.css": "/card-list-ts/static/css/main.418ff000.css",
+    "main.js": "/card-list-ts/static/js/main.55db4768.js",
+    "index.html": "/card-list-ts/index.html",
+    "main.418ff000.css.map": "/card-list-ts/static/css/main.418ff000.css.map",
+    "main.55db4768.js.map": "/card-list-ts/static/js/main.55db4768.js.map"
   },
   "entrypoints": [
     "static/css/main.418ff000.css",
-    "static/js/main.9c4a27fb.js"
+    "static/js/main.55db4768.js"
   ]
 }
