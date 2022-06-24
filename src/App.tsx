@@ -1,52 +1,46 @@
 import React, {useEffect} from 'react';
 import './App.css';
 import {useAppDispatch, useAppSelector} from "./hooks/redux";
-import {fetchAnimals, fetchUsers} from "./store/reducers/ActionCreators";
+import {fetchAnimals} from "./store/reducers/ActionCreators";
 import Card from "./components/Card/Card";
 import {AnimalSlice} from "./store/reducers/AnimalSlice";
+import {Checkbox, Layout} from "antd";
+import 'antd/dist/antd.css';
 
 function App() {
-/*
-    const [animals, setAnimals] = useState([]);
-
-    useEffect(() => {
-        const fetchData = async () => {
-            const result = await axios(endpoint);
-            setAnimals(result.data);
-        };
-        fetchData();
-    }, []);*/
+    const { Header, Content } = Layout;
 
     const dispatch = useAppDispatch();
     const {filterIsLiked} = AnimalSlice.actions;
-    // const {users, isLoading, error} = useAppSelector(state => state.userReducer);
     const {animals, isLoading, error} = useAppSelector(state => state.animalReducer)
 
     useEffect(() => {
-        // dispatch(fetchUsers())
         dispatch(fetchAnimals())
-        // console.log('ololo')
     }, [ ])
 
     return (
         <div className="app">
-            {/*{animals.map((animal: any) => {
-                return <Card animal={animal} key={animal.id}/>;
-            })}*/}
-            <div className={'filter'}>
-                <label>
-                    <input type="checkbox"
-                    onChange={(e) => dispatch(filterIsLiked(!!e.target.checked))}/>
-                    отсортировать
-                </label>
-            </div>
-            {animals.map((animal) => {
-                return animal.isDisplay && <Card animal={animal} key={animal.id}/>;
-            })}
-            {isLoading && <h1>Идет загрузка...</h1>}
-            {error && <h1>{error}</h1>}
-            {/*{JSON.stringify(users,null, 2)}*/}
-            {/*{JSON.stringify(animals, null, 2)}*/}
+            <Layout>
+                <Header>
+                    <h1>Галерея</h1>
+                </Header>
+                <Content>
+                    <div className={'filter'}>
+                        <Checkbox
+                            onChange={(e) =>
+                                dispatch(filterIsLiked(e.target.checked))}>
+                            Отсортировать по лайкам
+                        </Checkbox>
+                    </div>
+                    <div className={'card-list'}>
+                        {animals.map((animal) => {
+                            return animal.isDisplay && <Card animal={animal} key={animal.id}/>;
+                        })}
+                        {isLoading && <h1>Идет загрузка...</h1>}
+                        {error && <h1>{error}</h1>}
+                    </div>
+                </Content>
+            </Layout>
         </div>
     );
 }

@@ -1,15 +1,19 @@
-.app {
+header h1 {
+  color: white;
+  text-align: center;
+}
+
+.card-list {
   display: flex;
   flex-wrap: wrap;
-  row-gap: 5px;
-  column-gap: 5px;
+  row-gap: 10px;
+  column-gap: 10px;
+  justify-content: center;
 }
 
 .filter {
-  width: 100%;
-}
-.filter label {
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 50px;
 }

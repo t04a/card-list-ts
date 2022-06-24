@@ -1,1 +1,0 @@
-export const endpoint: string = 'https://zoo-animal-api.herokuapp.com/animals/rand/8';
