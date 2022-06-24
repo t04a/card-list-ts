@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "//t04a.github.io/card-list-ts/static/css/main.418ff000.css",
+    "main.js": "//t04a.github.io/card-list-ts/static/js/main.9c4a27fb.js",
+    "index.html": "//t04a.github.io/card-list-ts/index.html",
+    "main.418ff000.css.map": "//t04a.github.io/card-list-ts/static/css/main.418ff000.css.map",
+    "main.9c4a27fb.js.map": "//t04a.github.io/card-list-ts/static/js/main.9c4a27fb.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.418ff000.css",
+    "static/js/main.9c4a27fb.js"
+  ]
+}
