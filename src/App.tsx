@@ -6,6 +6,7 @@ import Card from "./components/Card/Card";
 import {AnimalSlice} from "./store/reducers/AnimalSlice";
 import {Checkbox, Layout} from "antd";
 import 'antd/dist/antd.css';
+import {Footer} from "antd/es/layout/layout";
 
 function App() {
     const { Header, Content } = Layout;
@@ -40,6 +41,7 @@ function App() {
                         {error && <h1>{error}</h1>}
                     </div>
                 </Content>
+                <Footer/>
             </Layout>
         </div>
     );

@@ -1,7 +1,7 @@
 {
   "name": "card-list-ts",
   "version": "0.1.0",
-  "homepage": "https://https://t04a.github.io/card-list-ts/",
+  "homepage": "https://t04a.github.io/card-list-ts/",
   "private": true,
   "dependencies": {
     "@ant-design/icons": "^4.7.0",

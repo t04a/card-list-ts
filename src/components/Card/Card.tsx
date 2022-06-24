@@ -16,7 +16,10 @@ const Card = ({animal}: CardProps) => {
 
     return (
         <div className={style.card}>
-            <img src={animal.image_link} alt=""/>
+            <img src={animal.image_link}
+                 width={'300px'}
+                 height={'300px'}
+                 alt=""/>
             <p>{animal.name}</p>
             {/*<div className={animal.isLiked ? style.likeTrue : style.likeFalse}
                  onClick={() => dispatch(changeIsLiked(animal.id))}>
