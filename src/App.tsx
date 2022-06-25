@@ -1,23 +1,24 @@
-import React, {useEffect} from 'react';
+import {useEffect} from 'react';
 import './App.css';
 import {useAppDispatch, useAppSelector} from "./hooks/redux";
-import {fetchAnimals} from "./store/reducers/ActionCreators";
+import {fetchAnimals} from "./store/action-creators";
 import Card from "./components/Card/Card";
-import {AnimalSlice} from "./store/reducers/AnimalSlice";
-import {Checkbox, Layout} from "antd";
+import {Layout} from "antd";
 import 'antd/dist/antd.css';
 import {Footer} from "antd/es/layout/layout";
+import { Filter } from './components/filter/Filter';
+import { useAnimals } from './hooks/use-animal';
 
 function App() {
     const { Header, Content } = Layout;
 
     const dispatch = useAppDispatch();
-    const {filterIsLiked} = AnimalSlice.actions;
-    const {animals, isLoading, error} = useAppSelector(state => state.animalReducer)
+    const {isLoading, error} = useAppSelector(state => state.animalReducer)
+    const animals = useAnimals({filtered:true});
 
     useEffect(() => {
         dispatch(fetchAnimals())
-    }, [ ])
+    }, [dispatch])
 
     return (
         <div className="app">
@@ -26,19 +27,15 @@ function App() {
                     <h1>Галерея</h1>
                 </Header>
                 <Content>
-                    <div className={'filter'}>
-                        <Checkbox
-                            onChange={(e) =>
-                                dispatch(filterIsLiked(e.target.checked))}>
-                            Отсортировать по лайкам
-                        </Checkbox>
+                    <div className="filter">
+                        <Filter />
                     </div>
-                    <div className={'card-list'}>
-                        {animals.map((animal) => {
-                            return animal.isDisplay && <Card animal={animal} key={animal.id}/>;
+                    <div className="card-list">
+                        {animals?.map((animal) => {
+                            return <Card animal={animal} key={animal.id}/>;
                         })}
-                        {isLoading && <h1>Идет загрузка...</h1>}
-                        {error && <h1>{error}</h1>}
+                        {isLoading && <h2>Идет загрузка...</h2>}
+                        {error && <h2>{error.message}</h2>}
                     </div>
                 </Content>
                 <Footer/>

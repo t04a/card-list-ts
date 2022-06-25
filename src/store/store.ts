@@ -1,9 +1,7 @@
 import {combineReducers, configureStore} from "@reduxjs/toolkit";
-import userReducer from './reducers/UserSlice'
-import animalReducer from './reducers/AnimalSlice'
+import animalReducer from './reducers/animal-slice'
 
 const rootReducer = combineReducers({
-    userReducer,
     animalReducer,
 })
 
