@@ -1,19 +1,19 @@
 header h1 {
-  color: white;
-  text-align: center;
+    color: white;
+    text-align: center;
 }
 
 .card-list {
-  display: flex;
-  flex-wrap: wrap;
-  row-gap: 10px;
-  column-gap: 10px;
-  justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 10px;
+    column-gap: 10px;
+    justify-content: center;
 }
 
 .filter {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
 }

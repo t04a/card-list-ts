@@ -1,6 +1,6 @@
-import {AnimalId, AnimalModel} from "../../models/animal-model";
-import {createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {fetchAnimals} from "../action-creators";
+import { AnimalId, AnimalModel } from '../../models/animal-model';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { fetchAnimals } from '../action-creators';
 
 interface FilterState {
     byLikes: boolean;
@@ -8,7 +8,7 @@ interface FilterState {
 
 interface AnimalState {
     animals?: AnimalModel[];
-    filter: FilterState,
+    filter: FilterState;
     isLoading: boolean;
     error?: Error;
 }
@@ -18,34 +18,34 @@ const initialState: AnimalState = {
         byLikes: false,
     },
     isLoading: false,
-}
+};
 
 export const AnimalSlice = createSlice({
     name: 'animal',
     initialState,
     reducers: {
         changeFilter(state, action: PayloadAction<Partial<FilterState>>) {
-            state.filter = {...state.filter, ...action.payload};
+            state.filter = { ...state.filter, ...action.payload };
         },
 
         deleteCard(state, action: PayloadAction<AnimalId>) {
-            const {animals} = state;
-            if(!animals) {
+            const { animals } = state;
+            if (!animals) {
                 return;
             }
 
-            const index = animals.findIndex((animal) => animal.id === action.payload)
-            animals.splice(index, 1)
+            const index = animals.findIndex((animal) => animal.id === action.payload);
+            animals.splice(index, 1);
         },
 
         toggleLikeCardState(state, action: PayloadAction<AnimalId>) {
-            const {animals} = state;
-            if(!animals) {
+            const { animals } = state;
+            if (!animals) {
                 return;
             }
 
-            const animal = animals.find((animal) => animal.id === action.payload)
-            if(!animal) {
+            const animal = animals.find((animal) => animal.id === action.payload);
+            if (!animal) {
                 return;
             }
 
@@ -65,8 +65,8 @@ export const AnimalSlice = createSlice({
         [fetchAnimals.rejected.type]: (state, action: PayloadAction<Error>) => {
             state.isLoading = false;
             state.error = action.payload;
-        }
-    }
-})
+        },
+    },
+});
 
 export default AnimalSlice.reducer;
